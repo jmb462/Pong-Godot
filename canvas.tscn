@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbto0p13bmgw8"]
+
+[ext_resource type="Script" path="res://playerScore1.gd" id="1_7rvjq"]
+[ext_resource type="Script" path="res://playerScore2.gd" id="2_q6u04"]
+
+[node name="Canvas" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="playerScore1" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+script = ExtResource("1_7rvjq")
+
+[node name="playerScore2" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+script = ExtResource("2_q6u04")

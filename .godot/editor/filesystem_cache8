@@ -1,3 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1694729701
+::res://::1694849649
 icon.svg::CompressedTexture2D::533810287982077708::1694729696::1694729702::1::::<><>::
+main.tscn::PackedScene::8564375241826813729::1694732865::0::1::::<><>::uid://c3cogn2qrosr::::res://pad1.tscn
+pad1.gd::GDScript::-1::1694732220::0::1::::<>CharacterBody3D<>::
+pad1.tscn::PackedScene::198327035961321045::1694732865::0::1::::<><>::res://pad1.gd

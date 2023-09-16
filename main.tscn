@@ -1,24 +1,77 @@
-[gd_scene load_steps=4 format=3 uid="uid://duawakmiirdpp"]
+[gd_scene load_steps=11 format=3 uid="uid://duawakmiirdpp"]
 
 [ext_resource type="PackedScene" uid="uid://c3cogn2qrosr" path="res://pad1.tscn" id="1_713db"]
+[ext_resource type="Script" path="res://main.gd" id="1_npgrm"]
+[ext_resource type="PackedScene" uid="uid://dxjmiqx58idlv" path="res://pad_2.tscn" id="2_5glmr"]
+[ext_resource type="PackedScene" uid="uid://c3r11cghnqbs8" path="res://ball.tscn" id="3_lsgco"]
+[ext_resource type="PackedScene" uid="uid://dhwfh5iljou7n" path="res://draw_manager.tscn" id="5_d2v7a"]
+[ext_resource type="PackedScene" uid="uid://dbto0p13bmgw8" path="res://canvas.tscn" id="6_1cviw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1y5m"]
 albedo_color = Color(0, 0.156863, 0.156863, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_inxwl"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x77x8"]
+size = Vector3(64, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7apjb"]
+size = Vector3(1, 1, 32)
+
 [node name="Main" type="Node3D"]
+script = ExtResource("1_npgrm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(16, 0, 0, 0, 1, 0, 0, 0, 16, 0, 0, 0)
+transform = Transform3D(64, 0, 0, 0, 4, 0, 0, 0, 64, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_t1y5m")
 mesh = SubResource("PlaneMesh_inxwl")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 16, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 18, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 12.9602, -22.2714)
 
-[node name="Pad1" parent="." instance=ExtResource("1_713db")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10, 0, 0)
+[node name="Pad1" parent="." groups=["pad"] instance=ExtResource("1_713db")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, 0)
+
+[node name="Pad2" parent="." groups=["pad"] instance=ExtResource("2_5glmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="Ball" parent="." instance=ExtResource("3_lsgco")]
+
+[node name="TopWall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopWall"]
+shape = SubResource("BoxShape3D_x77x8")
+
+[node name="BottomWall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BottomWall"]
+shape = SubResource("BoxShape3D_x77x8")
+
+[node name="RightWall" type="StaticBody3D" parent="."]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+shape = SubResource("BoxShape3D_7apjb")
+
+[node name="LeftWall" type="StaticBody3D" parent="."]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
+shape = SubResource("BoxShape3D_7apjb")
+
+[node name="DrawManager" parent="." instance=ExtResource("5_d2v7a")]
+
+[node name="Canvas" parent="." instance=ExtResource("6_1cviw")]
