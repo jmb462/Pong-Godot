@@ -1,7 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbto0p13bmgw8"]
-
-[ext_resource type="Script" path="res://playerScore1.gd" id="1_7rvjq"]
-[ext_resource type="Script" path="res://playerScore2.gd" id="2_q6u04"]
+[gd_scene format=3 uid="uid://dbto0p13bmgw8"]
 
 [node name="Canvas" type="Control"]
 layout_mode = 3
@@ -11,7 +8,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="playerScore1" type="Label" parent="."]
+[node name="playerScore0" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -23,9 +20,8 @@ grow_horizontal = 2
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("1_7rvjq")
 
-[node name="playerScore2" type="Label" parent="."]
+[node name="playerScore1" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -37,4 +33,3 @@ grow_horizontal = 2
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_q6u04")

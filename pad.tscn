@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3cogn2qrosr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t4o6p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0otmp"]
+
+[node name="Pad" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 12
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_t4o6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0otmp")

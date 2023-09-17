@@ -1,8 +1,7 @@
 res://main.tscn
+res://pad.gd
 res://canvas.tscn
-res://playerScore1.gd
-res://playerScore2.gd
+res://pad.tscn
 res://ball.gd
-res://pad2.gd
-res://pad_2.tscn
-res://pad1.tscn
+res://main.gd
+res://DrawManager.gd
